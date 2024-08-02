@@ -1,6 +1,6 @@
-export function normalizeURL(path) {
+export function normalizeURL(uri) {
   try {
-    const url = new URL(path);
+    const url = new URL(uri);
     const host = url.host;
     let pathname = url.pathname;
     pathname = pathname.endsWith('/')
@@ -9,8 +9,7 @@ export function normalizeURL(path) {
 
     return `${host}${pathname}`;
   } catch (err) {
-    if (err instanceof TypeError) {
-      throw new Error('Invalid url scheme');
-    }
+    // TODO: Find out why checking the error type with instanceof does not work
+    throw new Error('Invalid url: ' + uri);
   }
 }

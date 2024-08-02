@@ -23,4 +23,7 @@ test('should remove username and password from urls', () => {
   ).toEqual('mysql-server:2333/database');
 });
 
-test.todo('should fail if the provided string is not an valid url');
+test('should throw if the provided string is not an valid url', () => {
+  expect(() => normalizeURL('')).toThrow('Invalid url:');
+  expect(() => normalizeURL('not an url')).toThrow('Invalid url: not an url');
+});
