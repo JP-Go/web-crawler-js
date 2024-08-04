@@ -17,5 +17,8 @@
   "jest": {
     "testEnvironment": "node",
     "transform": {}
+  },
+  "dependencies": {
+    "jsdom": "^24.1.1"
   }
 }
